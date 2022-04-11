@@ -1,200 +1,415 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daan</title>
-    <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.css" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/boxicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="css/style.css">
 
 
+    <title>DAAN</title>
 </head>
-   
-</head>
 
-<body class="">
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-fixed-top" id="custom-nav">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">
-                    <img src="img/daan_logo.png" alt="" width="70" height="40">
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-                    <span class="navbar-toggler-icon"></span>
-                  </button>
-                <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar ">
-                    <ul class="nav navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" target="_blank" href="clothes.html">Donate clothes</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" target="_blank" href="books.html">Donate Books</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger text-dark" href="about">ABOUT</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-    <main>
-        <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"
-                    aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-            </div>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="img/donate_one.jpg" class="bd-placeholder-img" width="100%" height="700"
-                        aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
-                    <rect width="100%" height="100%" fill="#777" /></img>
+<body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="70">
 
-                    <div class="container">
-                        <div class="carousel-caption text-start">
-                            <h1>Example headline.</h1>
-                            <p>Some representative placeholder content for the first slide of the carousel.</p>
-                            <p><a class="btn btn-lg btn-primary" href="#">Sign up today</a></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="img/donate_two.jpeg" class="bd-placeholder-img" width="100%" height="700"
-                        xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice"
-                        focusable="false">
-                    <rect width="100%" height="100%" fill="#777" /></img>
-
-                    <div class="container">
-                        <div class="carousel-caption">
-                            <h1>Another example headline.</h1>
-                            <p>Some representative placeholder content for the second slide of the carousel.</p>
-                            <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="img/donation_three.jpg" class="bd-placeholder-img" width="100%" height="700"
-                        xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice"
-                        focusable="false">
-                    <rect width="100%" height="100%" fill="#777" /></img>
-
-                    <div class="container">
-                        <div class="carousel-caption text-end">
-                            <h1>One more for good measure.</h1>
-                            <p>Some representative placeholder content for the third slide of this carousel.</p>
-                            <p><a class="btn btn-lg btn-primary" href="#">Browse gallery</a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg py-3 sticky-top navbar-light bg-white">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img class="logo" src="img/daan logo.jpg" alt="">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#features">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#portfolio">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#team">Team</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cloth.html">Donate Clothes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="book.html">Donate Books</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="_blank">Donate Shoes</a>
+                    </li>
+                </ul>
+                <button class="btn btn-primary ms-lg-3">Join Us</button>
+            </div>
         </div>
+    </nav><!-- //NAVBAR -->
 
-        <div class="container marketing">
+    <!-- HERO -->
+    <div class="hero vh-100 d-flex align-items-center" id="home">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 mx-auto text-center">
+                    <h1 class="display-4 text-white">Welcome to DAAN</h1>
+                    <p class="text-white my-3">Let's Donate and spread Love </p>
+                    <a href="#" class="btn me-2 btn-primary">Make Daan</a>
+                </div>
+            </div>
+        </div>
+    </div><!-- //HERO -->
+
+    <!-- SERVICES -->
+    <section id="services">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-md-8 mx-auto text-center">
+                    <h6 class="text-primary">SERIVCES</h6>
+                    <h1>Our Services</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur nisi necessitatibus repellat distinctio eveniet eaque fuga
+                        in cumque optio consectetur harum vitae debitis sapiente praesentium aperiam aut</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-sm-6">
+                    <div class="service card-effect bounceInUp">
+                        <div class="iconbox">
+                            <i class='bx bxs-check-shield'></i>
+                        </div>
+                        <h5 class="mt-4 mb-2">Service</h5>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil perspiciatis illo asperiores
+                            perferendis </p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="service card-effect">
+                        <div class="iconbox">
+                            <i class='bx bxs-heart'></i>
+                        </div>
+                        <h5 class="mt-4 mb-2">Service</h5>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil perspiciatis illo asperiores
+                            perferendis </p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="service card-effect">
+                        <div class="iconbox">
+                            <i class='bx bxs-doughnut-chart'></i>
+                        </div>
+                        <h5 class="mt-4 mb-2">Service</h5>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil perspiciatis illo asperiores
+                            perferendis </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!-- SERVICES -->
+
+    <!-- FEATURES -->
+    <section class="row w-100 py-0 bg-light" id="features">
+        <div class="col-lg-6 col-img"></div>
+        <div class="col-lg-6 py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-10 offset-md-1">
+                        <h6 class="text-primary">WHY TO CHOOES US</h6>
+                        <h1>Best solution for Wastage</h1>
+                        <p>Lorem ipsum dolor sit amet consectetur nisi necessitatibus repellat distinctio eveniet eaque
+                            fuga
+                            in cumque optio consectetur harum vitae debitis sapiente praesentium aperiam aut</p>
+
+                        <div class="feature d-flex mt-5">
+                            <div class="iconbox me-3">
+                                <i class='bx bxs-comment-edit'></i>
+                            </div>
+                            <div>
+                                <h5>Feature</h5>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil perspiciatis illo </p>
+                            </div>
+                        </div>
+                        <div class="feature d-flex">
+                            <div class="iconbox me-3">
+                                <i class='bx bxs-user-circle'></i>
+                            </div>
+                            <div>
+                                <h5>Feature</h5>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil perspiciatis illo </p>
+                            </div>
+                        </div>
+                        <div class="feature d-flex">
+                            <div class="iconbox me-3">
+                                <i class='bx bxs-download'></i>
+                            </div>
+                            <div>
+                                <h5>Feature</h5>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil perspiciatis illo </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!-- FEATURES -->
+
+    <!-- PROJECTS -->
+    <section id="portfolio">
+        <div class="container-fluid">
+            <div class="row mb-5">
+                <div class="col-md-8 mx-auto text-center">
+                    <h6 class="text-primary">PROJECTS</h6>
+                    <h1>Our Recent Work</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur nisi necessitatibus repellat distinctio eveniet eaque fuga
+                        in cumque optio consectetur harum vitae debitis sapiente praesentium aperiam aut</p>
+                </div>
+            </div>
+            <div class="row g-3">
+                <div class="col-lg-4 col-sm-6">
+                    <div class="project">
+                        <img src="img/clothbg.jpg" alt="">
+                        <div class="overlay">
+                            <div>
+                                <h4 class="text-white">Project Title</h4>
+                                <h6 class="text-white">Website Design</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="project">
+                        <img src="img/bookbg.webp" alt="">
+                        <div class="overlay">
+                            <div>
+                                <h4 class="text-white">Project Title</h4>
+                                <h6 class="text-white">Website Design</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="project">
+                        <img src="img/donation_three.jpg" alt="">
+                        <div class="overlay">
+                            <div>
+                                <h4 class="text-white">Project Title</h4>
+                                <h6 class="text-white">Website Design</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="project">
+                        <img src="img/donate_one.jpg" alt="">
+                        <div class="overlay">
+                            <div>
+                                <h4 class="text-white">Project Title</h4>
+                                <h6 class="text-white">Website Design</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="project">
+                        <img src="img/donate_two.jpeg" alt="">
+                        <div class="overlay">
+                            <div>
+                                <h4 class="text-white">Project Title</h4>
+                                <h6 class="text-white">Website Design</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="project">
+                        <img src="img/pro6.jpg" alt="">
+                        <div class="overlay">
+                            <div>
+                                <h4 class="text-white">Project Title</h4>
+                                <h6 class="text-white">Website Design</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!-- PROJECTS -->
 
 
 
+    <!-- TEAM -->
+    <section id="team">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-md-8 mx-auto text-center">
+                    <h6 class="text-primary">TEAM</h6>
+                    <h1>Meet Our Crew Members</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur nisi necessitatibus repellat distinctio eveniet eaque fuga
+                        in cumque optio consectetur harum vitae debitis sapiente praesentium aperiam aut</p>
+                </div>
+            </div>
+            <div class="row text-center g-4">
+                <div class="col-lg-3 col-sm-6">
+                    <div class="team-member card-effect">
+                        <img src="img/team1.jpg" alt="">
+                        <h5 class="mb-0 mt-4">Sharbat Khan</h5>
+                        <p>Web Developer</p>
+                        <div class="social-icons">
+                            <a href="#"><i class='bx bxl-facebook'></i></a>
+                            <a href="#"><i class='bx bxl-twitter'></i></a>
+                            <a href="#"><i class='bx bxl-instagram-alt'></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="team-member card-effect">
+                        <img src="img/team2.jpg" alt="">
+                        <h5 class="mb-0 mt-4">Sharbat Khan</h5>
+                        <p>Web Developer</p>
+                        <div class="social-icons">
+                            <a href="#"><i class='bx bxl-facebook'></i></a>
+                            <a href="#"><i class='bx bxl-twitter'></i></a>
+                            <a href="#"><i class='bx bxl-instagram-alt'></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="team-member card-effect">
+                        <img src="img/team3.jpg" alt="">
+                        <h5 class="mb-0 mt-4">Sharbat Khan</h5>
+                        <p>Web Developer</p>
+                        <div class="social-icons">
+                            <a href="#"><i class='bx bxl-facebook'></i></a>
+                            <a href="#"><i class='bx bxl-twitter'></i></a>
+                            <a href="#"><i class='bx bxl-instagram-alt'></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="team-member card-effect">
+                        <img src="img/team4.jpg" alt="">
+                        <h5 class="mb-0 mt-4">Sharbat Khan</h5>
+                        <p>Web Developer</p>
+                        <div class="social-icons">
+                            <a href="#"><i class='bx bxl-facebook'></i></a>
+                            <a href="#"><i class='bx bxl-twitter'></i></a>
+                            <a href="#"><i class='bx bxl-instagram-alt'></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!-- TEAM -->
 
-            <!-- START THE FEATURETTES -->
 
-            <hr class="featurette-divider">
 
-            <div class="row featurette">
-                <div class="col-md-7">
-                    <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It’ll blow your
-                            mind.</span></h2>
-                    <p class="lead">Our application
-                        will allow users to upload data of the commodities that they want to donate. Once
-                        a donation request is uploaded, all registered NGOs and other organizations will
-                        be notified about it. Each organization can either accept or reject the request. By
-                        using this app, users can get in contact with NGOs easily</p>
+    <!-- CONTACT -->
+    <section id="contact">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-md-8 mx-auto text-center">
+                    <h6 class="text-primary">CONTACT</h6>
+                    <h1>Get In Touch</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur nisi necessitatibus repellat distinctio eveniet eaque fuga
+                        in cumque optio consectetur harum vitae debitis sapiente praesentium aperiam aut</p>
+                </div>
+            </div>
+
+            <form action="" class="row g-3 justify-content-center">
+                <div class="col-md-5">
+                    <input type="text" class="form-control" placeholder="Full Name">
                 </div>
                 <div class="col-md-5">
-                    <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
-                        height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500"
-                        preserveAspectRatio="xMidYMid slice" focusable="false" src="img/daan2.jpg">
-                        <title>Placeholder</title>
-                        <rect width="100%" height="100%" fill="#eee" />
-                </img>
+                    <input type="text" class="form-control" placeholder="Enter E-mail">
+                </div>
+                <div class="col-md-10">
+                    <input type="text" class="form-control" placeholder="Enter Subject">
+                </div>
+                <div class="col-md-10">
+                    <textarea name="" id="" cols="30" rows="5" class="form-control"
+                        placeholder="Enter Message"></textarea>
+                </div>
+                <div class="col-md-10 d-grid">
+                    <button class="btn btn-primary">Contact</button>
+                </div>
+            </form>
 
+        </div>
+    </section><!-- CONTACT -->
+
+    <footer>
+        <div class="footer-top">
+            <div class="container">
+                <div class="row gy-4">
+                    <div class="col-lg-4">
+                        <img class="logo" src="img/daan logo.jpg" alt="">
+                    </div>
+                    <div class="col-lg-2">
+                        <h5 class="text-white">Site</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Services</a></li>
+                            <li><a href="#">Features</a></li>
+                            <li><a href="#">Pricing</a></li>
+                        </ul>
+                    </div>
+                    <!-- <div class="col-lg-2">
+                        <h5 class="text-white">More</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="#">FAQ's</a></li>
+                            <li><a href="#">Privacy & Policy</a></li>
+                            <li><a href="#">Warranty</a></li>
+                            <li><a href="#">Shipment</a></li>
+                        </ul>
+                    </div> -->
+                    <div class="col-lg-4">
+                        <h5 class="text-white">Contact</h5>
+                        <ul class="list-unstyled">
+                            <li>Address: Goa University</li>
+                            <li>Email: jackson.graham@example.com</li>
+                            <li>Phone: 8322471</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-
-            <hr class="featurette-divider">
-
-            <div class="row featurette">
-                <div class="col-md-7 order-md-2">
-                    <h2 class="featurette-heading">Oh yeah, it’s that good. <span class="text-muted">See for
-                            yourself.</span></h2>
-                    <p class="lead">Another featurette? Of course. More placeholder content here to give you an idea of
-                        how
-                        this layout would work with some actual real-world content in place.</p>
-                </div>
-                <div class="col-md-5 order-md-1">
-                    <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
-                        height="500" xmlns="http://www.w3.org/2000/svg" src="img/don3.jpeg" role="img" aria-label="Placeholder: 500x500"
-                        preserveAspectRatio="xMidYMid slice" focusable="false">
-                        <title>Placeholder</title>
-                        <rect width="100%" height="100%" fill="#eee" />
-                </img>
-
+        </div>
+        <div class="footer-bottom py-3">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p class="mb-0">© 2020 copyright all right reserved | Designed with by<a
+                                href="https://www.youtube.com/channel/UCYMEEnLzGGGIpQQ3Nu_sBsQ"
+                                class="text-white">CORE</a></p>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="social-icons">
+                            <a href="#"><i class='bx bxl-facebook'></i></a>
+                            <a href="#"><i class='bx bxl-twitter'></i></a>
+                            <a href="#"><i class='bx bxl-instagram-alt'></i></a>
+                        </div>
+                    </div>
                 </div>
             </div>
+        </div>
+    </footer>
 
-            <hr class="featurette-divider">
 
-            <div class="row featurette">
-                <div class="col-md-7">
-                    <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
-                    <p class="lead">And yes, this is the last block of representative placeholder content. Again, not
-                        really
-                        intended to be actually read, simply here to give you a better view of what this would look like
-                        with some actual content. Your content.</p>
-                </div>
-                <div class="col-md-5">
-                    <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
-                        height="500" xmlns="http://www.w3.org/2000/svg" src="img/daan1.jpg" role="img" aria-label="Placeholder: 500x500"
-                        preserveAspectRatio="xMidYMid slice" focusable="false">
-                        <title>Placeholder</title>
-                        <rect width="100%" height="100%" fill="#eee" />
-                </img>
 
-                </div>
-            </div>
-
-            <hr class="featurette-divider">
-
-            <!-- /END THE FEATURETTES -->
-
-        </div><!-- /.container -->
-
-        <footer class="container">
-            <p class="float-end"><a href="#">Back to top</a></p>
-            <p>&copy; Designed by CORE</p>
-        </footer>
-
-    </main>
-
-    <script src="js/jquery.js"></script>
-    <script src="js/jquery.easing.min.js"></script>
-    <script src="js/bootstrap.js"></script>
-    <script src="js/bootstrap.bundle.js.map"></script>
-    <!-- <script src="js/jquery.easing.min.js"></script> -->
-    <!-- <script src="js/scrolling-nav.js"></script> -->
-
+    <script src="js/bootstrap.bundle.min.js"></script>
 </body>
-
 </html>
