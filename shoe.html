@@ -73,17 +73,31 @@
                         <a class="nav-link" href="books.html">Donate Books</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="shoe.html" data-toggle="modal" data-target="#exampleModalLong">Donate Shoes</a>
+                        <a class="nav-link" href="shoe.html">Donate Shoes</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="vermicomposting.html">Vermi Composting</a>
                     </li>
                 </ul>
-                <button class="btn btn-primary ms-lg-3">Join Us</button>
+                <button class="btn btn-primary ms-lg-3" onclick="window.location.href='register.html'">Join Us</button>
             </div>
         </div>
     </nav><!-- //NAVBAR -->
+    <section id="contact">
+        <div class="container" style="background-color: white;">
+            <div class="row-md-5">
+                    <div class="card-body">
+                        <center><h3 class="card-title"><a href="#" class="text-primary">Guidelines to donate Shoes</a></h3></center>
+                        <p><strong>1. All the donated items are subjected to verification.</strong></p>
+                        <p><strong>2. The donated items are expected to be in good conditions and not beyond repair.</strong></p>
+                        <p><strong>3. The donated items should be cleaned before donating.</strong></p>
+                        <p><strong>4. No holes should not be there in the shoes</strong></p>
+                        <center><a href="#shoeform" class="btn btn-success">Donate NOW</a></center>
+                    </div>
+            </div>
+        </div>
 
+    </section>
 
     <!-- CONTACT -->
     <section id="contact">
@@ -91,12 +105,12 @@
             <div class="row mb-5">
                 <div class="col-md-8 mx-auto text-center">
                     <h6 class="text-primary">GET IN TOUCH WITH THE NGO's</h6>
-                    <h1>SHOE DONATION</h1>
+                    <h1 id="shoeform">SHOE DONATION</h1>
                     <p>Happiness doesn't result from what we get, but from what we give</p>
                 </div>
             </div>
 
-            <form action="" class="row g-3 justify-content-center">
+            <form action="" class="row g-3 justify-content-center" >
                 <div class="col-md-5">
                     <input type="text" class="form-control" placeholder=" Enter your Full Name">
                 </div>

@@ -10,12 +10,17 @@
     <link rel="stylesheet" href="css/boxicons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="css/style.css">
-
+    <style>
+        .card-thumbnail {
+            max-height: 250px;
+            overflow: hidden;
+        }
+    </style>
 
     <title>DAAN</title>
 </head>
 
-<body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="70" style="background-image: url('img/bookbg.jpg')">
+<body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="70" >
 
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg py-3 sticky-top navbar-light bg-white">
@@ -63,62 +68,64 @@
         </div>
     </nav><!-- //NAVBAR -->
 
-    <section id="contact">
-        <div class="container" style="background-color: white;">
-            <div class="row-md-5">
-                    <div class="card-body">
-                        <center><h3 class="card-title"><a href="#" class="text-primary">Guidelines to donate Books</a></h3></center>
-                        <p><strong>1. All the donated items are subjected to verification.</strong></p>
-                        <p><strong>2. The donated items are expected to be in good conditions and not beyond repair.</strong></p>
-                        <p><strong>3. The donated items should be cleaned before donating.</strong></p>
-                        <p><strong>4. No holes should not be there in the shoes</strong></p>
-                        <center><a href="#bookform" class="btn btn-success">Donate NOW</a></center>
+
+    <section class="bg-light py-4 my-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="mb-3 text-primary">NGO Dashboard</h2>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="card my-3">
+                        <div class="card-thumbnail">
+                            <img src="https://www.markuptag.com/images/image-one.jpg" class="img-fluid" alt="thumbnail">
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title"><a href="#" class="text-secondary">What is Lorem Ipsum?</a></h3>
+                            <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting
+                                industry. Lorem Ipsum has been the industry's standard dummy text</p>
+                            <a href="#" class="btn btn-success">Accept</a>
+                            <a href="#" class="btn btn-danger">Decline</a>
+                        </div>
                     </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="card my-3">
+                        <div class="card-thumbnail">
+                            <img src="https://www.markuptag.com/images/image-two.jpg" class="img-fluid" alt="thumbnail">
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title"><a href="#" class="text-secondary">Why do we use it?</a></h3>
+                            <p class="card-text">It is a long established fact that a reader will be distracted by the
+                                readable content of a page when looking at its layout. The point of using Lorem</p>
+                            <a href="#" class="btn btn-success">Accept</a>
+                            <a href="#" class="btn btn-danger">Decline</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="card my-3">
+                        <div class="card-thumbnail">
+                            <img src="https://www.markuptag.com/images/image-three.jpg" class="img-fluid"
+                                alt="thumbnail">
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title"><a href="#" class="text-secondary">Where does it come from?</a></h3>
+                            <p class="card-text">Contrary to popular belief, Lorem Ipsum is not simply random text. It
+                                has roots in a piece of classical Latin literature from 45 BC, making it</p>
+                            <a href="#" class="btn btn-success">Accept</a>
+                            <a href="#" class="btn btn-danger">Decline</a>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
-
     </section>
 
-    <!-- CONTACT -->
-    <section id="contact">
-        <div class="container" style="background-color: white;">
-            <div class="row mb-5">
-                <div class="col-md-8 mx-auto text-center">
-                    <h6 class="text-primary">GET IN TOUCH WITH THE NGO's</h6>
-                    <h1 id="bookform">BOOK DONATION</h1>
-                    <p>Happiness doesn't result from what we get, but from what we give</p>
-                </div>
-            </div>
-
-            <form action="" class="row g-3 justify-content-center">
-                <div class="col-md-5">
-                    <input type="text" class="form-control" placeholder=" Enter your Full Name">
-                </div>
-                <div class="col-md-5">
-                    <input type="number" class="form-control" placeholder="Enter your phone number">
-                </div>
-                <div class="col-md-10">
-                    <input type="email" class="form-control" placeholder="Enter E-mail">
-                </div>
-                <div class="col-md-5">
-                    <input type="text" class="form-control" placeholder="Enter book name ">
-                </div>
-                <div class="col-md-5">
-                    <input type="text" class="form-control" placeholder="Enter Author name">
-                </div>
-                <div class="col-md-5">
-                    <input type="number" class="form-control" placeholder="Enter book weight apprx.">
-                </div>
-                <div class="col-md-5">
-                    <input type="text" class="form-control" placeholder="Enter Book genre">
-                </div>
-                <div class="col-md-10 d-grid">
-                    <button class="btn btn-primary">Submit</button>
-                </div>
-            </form>
-
-        </div>
-    </section><!-- CONTACT -->
 
     <footer>
         <div class="footer-top">
@@ -161,7 +168,7 @@
     </footer>
 
 
-    
+
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
 </body>
