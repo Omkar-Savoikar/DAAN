@@ -18,7 +18,7 @@
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg py-3 sticky-top navbar-light bg-white">
         <div class="container">
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand" href="index.php">
                 <img class="logo" src="img/daan logo.jpg" alt="">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -28,34 +28,34 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html#home">Home</a>
+                        <a class="nav-link" href="index.php#home">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html#services">Services</a>
+                        <a class="nav-link" href="index.php#services">Services</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html#features">Features</a>
+                        <a class="nav-link" href="index.php#features">Features</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html#team">Team</a>
+                        <a class="nav-link" href="index.php#team">Team</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html#contact">Contact</a>
+                        <a class="nav-link" href="index.php#contact">Contact</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="cloth.html">Donate Clothes</a>
+                        <a class="nav-link" href="cloth.php">Donate Clothes</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="books.html">Donate Books</a>
+                        <a class="nav-link" href="books.php">Donate Books</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="shoe.html">Donate Shoes</a>
+                        <a class="nav-link" href="shoe.php">Donate Shoes</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="vermicomposting.html">Vermi Composting</a>
+                        <a class="nav-link" href="vermicomposting.php">Vermi Composting</a>
                     </li>
                 </ul>
-                <button class="btn btn-primary ms-lg-3" onclick="window.location.href='register.html'">Join Us</button>
+                <button class="btn btn-primary ms-lg-3" onclick="window.location.href='register.php'">Join Us</button>
             </div>
         </div>
     </nav><!-- //NAVBAR -->
@@ -89,10 +89,10 @@
                     <div class="col-lg-2">
                         <h5 class="text-white">Site</h5>
                         <ul class="list-unstyled">
-                            <li><a href="index.html">About</a></li>
-                            <li><a href="index.html">Services</a></li>
-                            <li><a href="index.html">Features</a></li>
-                            <li><a href="index.html">Pricing</a></li>
+                            <li><a href="index.php">About</a></li>
+                            <li><a href="index.php">Services</a></li>
+                            <li><a href="index.php">Features</a></li>
+                            <li><a href="index.php">Pricing</a></li>
                         </ul>
                     </div>
 
@@ -125,4 +125,4 @@
     <script src="js/bootstrap.bundle.min.js"></script>
 </body>
 
-</html>
+</php>

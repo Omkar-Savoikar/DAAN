@@ -30,34 +30,34 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html#home">Home</a>
+                        <a class="nav-link" href="index.php#home">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html#services">Services</a>
+                        <a class="nav-link" href="index.php#services">Services</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html#features">Features</a>
+                        <a class="nav-link" href="index.php#features">Features</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html#team">Team</a>
+                        <a class="nav-link" href="index.php#team">Team</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html#contact">Contact</a>
+                        <a class="nav-link" href="index.php#contact">Contact</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="cloth.html">Donate Clothes</a>
+                        <a class="nav-link" href="cloth.php">Donate Clothes</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="books.html">Donate Books</a>
+                        <a class="nav-link" href="books.php">Donate Books</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="shoe.html">Donate Shoes</a>
+                        <a class="nav-link" href="shoe.php">Donate Shoes</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="vermicomposting.html">Vermi Composting</a>
+                        <a class="nav-link" href="vermicomposting.php">Vermi Composting</a>
                     </li>
                 </ul>
-                <button class="btn btn-primary ms-lg-3" onclick="window.location.href='register.html'">Join Us</button>
+                <button class="btn btn-primary ms-lg-3" onclick="window.location.href='register.php'">Join Us</button>
             </div>
         </div>
     </nav><!-- //NAVBAR -->
@@ -86,7 +86,7 @@
                 </div>
             </div>
             <div class="row g-4">
-                <a class="col-lg-4 col-sm-6" href="cloth.html">
+                <a class="col-lg-4 col-sm-6" href="cloth.php">
                     <div class="service card-effect bounceInUp">
                         <div class="iconbox">
                             <span class="iconify" data-icon="bx:closet"></span>
@@ -96,7 +96,7 @@
                             Schedule a donation pickup. Donate reusable clothes.</p>
                     </div>
                 </a>
-                <a class="col-lg-4 col-sm-6" href="books.html">
+                <a class="col-lg-4 col-sm-6" href="books.php">
                     <div class="service card-effect">
                         <div class="iconbox">
                             <span class="iconify" data-icon="bx:book-open"></span>
@@ -106,7 +106,7 @@
                             easily!! </p>
                     </div>
                 </a>
-                <a class="col-lg-4 col-sm-6" href="shoe.html">
+                <a class="col-lg-4 col-sm-6" href="shoe.php">
                     <div class="service card-effect">
                         <div class="iconbox">
                             <span class="iconify" data-icon="bx:walk"></span>
@@ -294,4 +294,4 @@
     <script src="js/bootstrap.bundle.min.js"></script>
 </body>
 
-</html>
+</php>
