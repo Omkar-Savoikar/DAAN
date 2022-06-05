@@ -114,6 +114,7 @@
                     <input type="number" class="form-control" placeholder="Enter number of pages">
                 </div>
                 <div class="col-md-5">
+                    <input type="number" class="form-control" placeholder="Enter number of units">
                 </div>
                 <div class="col-md-10 d-grid">
                     <button class="btn btn-primary">Submit</button>

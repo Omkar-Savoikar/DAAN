@@ -78,10 +78,13 @@
                     <input type="text" class="form-control" placeholder=" Enter your Full Name">
                 </div>
                 <div class="col-md-5">
-                    <input type="number" class="form-control" placeholder="Enter your phone number">
+                    <input type="number" class="form-control" placeholder="Enter your phone number" min="0" max="9999999999">
                 </div>
-                <div class="col-md-10">
+                <div class="col-md-5">
                     <input type="email" class="form-control" placeholder="Enter E-mail">
+                </div>
+                <div class="col-md-5">
+                    <input type="number" class="form-control" placeholder="Enter Aadhar number" min="0" max="999999999999">
                 </div>
                 <div class="col-md-10">
                     &nbsp;&nbsp;&nbsp; Address &#8659;
@@ -102,7 +105,7 @@
                     <input type="text" class="form-control" placeholder="Enter District">
                 </div>
                 <div class="col-md-5">
-                    <input type="number" class="form-control" placeholder="Enter Pincode">
+                    <input type="number" class="form-control" placeholder="Enter Pincode" min="0" max="999999">
                 </div>
                 <div class="col-md-10 d-grid">
                     <button class="btn btn-primary">Submit</button>
