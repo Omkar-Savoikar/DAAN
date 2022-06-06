@@ -101,6 +101,11 @@ session_start();
                 if ($count == 1) {
                     $userid = $row['UserID'];
                     $_SESSION['userid'] = $userid;
+                    $sql = "SELECT `Taluka` FROM `user` WHERE `userid` = '$userid'";
+                    $result = mysqli_query($db,$sql);
+                    $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+                    $taluka = $row['Taluka'];
+                    $_SESSION['taluka'] = $taluka;
                     header("location: home.php");
                 } else {
                     $msg = "Error. Entered details are wrong. Please enter proper details";

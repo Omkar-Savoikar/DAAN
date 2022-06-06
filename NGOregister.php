@@ -49,7 +49,7 @@ session_start();
                         <a class="nav-link" href="vermicomposting.php">Vermi Composting</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="NGOregister.php">Register as NGO</a>
+                        <a class="nav-link" href="NGOlogin.php">Login as NGO</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="userRegister.php">Register as User</a>
@@ -136,8 +136,7 @@ session_start();
                     $sql = "INSERT INTO `ngorequest` (`DIN`, `NGO_Name`, `H.No`, `Area`, `City`, `Taluka`, `District`, `Pincode`, `Mobile`, `EmailId`, `Password`, `Status`) VALUES ('$DIN', '$NGOname', '$hno', '$area', '$city', '$taluka', '$district', '$pincode', '$phone', '$emailid', '$password', 'NULL')";
                     $result = mysqli_query($db,$sql);
                     if ($result) {
-                        echo '<script>window.alert("Your registration request was successfully registered. You will be notified of the registration process soon.");</script>';
-                        header("location: index.php");
+                        echo '<script>window.alert("Your registration request was successfully registered. You will be notified of the registration process soon.")</script>';
                     } else {
                         $msg = "Sorry, couldn't connect to database. Try again.";
                     }

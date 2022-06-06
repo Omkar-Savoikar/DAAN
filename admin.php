@@ -48,7 +48,6 @@ ob_start();
                 <div class="col-12">
                     <h2 class="mb-3 text-primary">NEW NGO REGISTRATION REQESTS</h2>
                 </div>
-
                 <?php
                 $sql = "SELECT * FROM `ngorequest` WHERE `Status` = 'NULL'";
                 $result = mysqli_query($db,$sql);
@@ -85,21 +84,18 @@ ob_start();
                                     $district = $row['District'];
                                     $pincode = $row['Pincode'];
                                     $phone = $row['Mobile'];
-                                    $emailid = $row['EmailId'];
+                                    $emailid = $row['EmailID'];
                                     $password = $row['Password'];
                                     $sql = "UPDATE `ngorequest` SET `Status` = 'Accepted' WHERE `DIN` = '$DIN'";
-                                    $result = mysqli_query($db, $sql);
+                                    $res = mysqli_query($db, $sql);
                                     if ($result) {
                                         $sql = "INSERT INTO `ngo` (`DIN`, `NGO_Name`, `H.No`, `Area`, `City`, `Taluka`, `District`, `Pincode`, `Mobile`, `EmailId`, `Password`) VALUES ('$DIN', '$NGOname', '$hno', '$area', '$city', '$taluka', '$district', '$pincode', '$phone', '$emailid', '$password')";
-                                        $result = mysqli_query($db,$sql);
+                                        $res = mysqli_query($db,$sql);
                                     }
-                                    // refresh maybe
                                 }
                                 else if(array_key_exists('button2', $_POST)) {
-                                    // echo "Decline";
                                     $sql = "UPDATE `ngorequest` SET `Status` = 'Declined' WHERE `DIN` = '$DIN'";
-                                    $result = mysqli_query($db, $sql);
-                                    // on decline, select the ngo data from the ngorequest, change status to 'Declined'
+                                    $res = mysqli_query($db, $sql);
                                 }
                                 ?>
                                 <form method="post" class="row justify-content-center">

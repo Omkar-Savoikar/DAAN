@@ -4,6 +4,7 @@ $msg = "";
 ob_start();
 session_start();
 $userid = $_SESSION['userid'];
+$taluka = $_SESSION['taluka'];
 ?>
 <!doctype html>
 <html lang="en">
@@ -112,10 +113,24 @@ $userid = $_SESSION['userid'];
                 $material = mysqli_real_escape_string($db,$_POST['material']);
                 $color = mysqli_real_escape_string($db,$_POST['color']);
                 $units = mysqli_real_escape_string($db,$_POST['units']);
-                $sql = "INSERT INTO `footwear`(`Type`, `Gender`, `Size`, `Material`, `Color`, `Units`, `UserID`) VALUES ('$type','$gender','$size','$material','$color','$units','$userid')";
+                $sql = "INSERT INTO `donation` (`Type`) VALUES ('footwear')";
+                $result = mysqli_query($db,$sql);
+                $last_id = mysqli_insert_id($db);
+                $sql = "INSERT INTO `footwear`(`FootwearID`,`Type`, `Gender`, `Size`, `Material`, `Color`, `Units`, `UserID`) VALUES ('$last_id','$type','$gender','$size','$material','$color','$units','$userid')";
                 $result = mysqli_query($db,$sql);
                 if ($result) {
                     $msg = "Thank you for this donation.";
+                    $sql = "SELECT * FROM `ngo`";
+                    $result = mysqli_query($db,$sql);
+                    $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+                    while ($row) {
+                        if ($row['Taluka'] == $taluka) {
+                            $DIN = $row['DIN'];
+                            $sql = "INSERT INTO `status` VALUES ('$DIN', '$last_id', 'NULL')";
+                            $res = mysqli_query($db,$sql);
+                        }
+                        $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+                    }
                 } else {
                     $msg = "Sorry, couldn't connect to database. Try again.";
                 }

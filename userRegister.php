@@ -63,7 +63,7 @@ session_start();
                         <a class="nav-link" href="NGOregister.php">Register as NGO</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="userRegister.php">Register as User</a>
+                        <a class="nav-link" href="userLogin.php">Login as User</a>
                     </li>
                 </ul>
             </div>
@@ -147,6 +147,7 @@ session_start();
                         $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
                         $userid = $row['UserID'];
                         $_SESSION['userid'] = $userid;
+                        $_SESSION['taluka'] = $taluka;
                         header("location: home.php");
                     } else {
                         $msg = "Sorry, couldn't connect to database. Try again.";

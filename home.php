@@ -4,6 +4,7 @@ $msg = "";
 ob_start();
 session_start();
 $userid = $_SESSION['userid'];
+$taluka = $_SESSION['taluka'];
 ?>
 <!doctype html>
 <html lang="en">
