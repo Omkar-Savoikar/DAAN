@@ -1,6 +1,12 @@
+<?php
+include("include/config.php");
+$msg = "";
+ob_start();
+session_start();
+$userid = $_SESSION['userid'];
+?>
 <!doctype html>
 <html lang="en">
-
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -12,13 +18,11 @@
     <link rel="stylesheet" href="css/style.css">
     <title>DAAN</title>
 </head>
-
 <body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="70" style="background-image: url('img/shoebg.jpg')">
-
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg py-3 sticky-top navbar-light bg-white">
         <div class="container">
-            <a class="navbar-brand" href="index.php">
+            <a class="navbar-brand" href="#">
                 <img class="logo" src="img/daan logo.jpg" alt="">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -28,19 +32,10 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php#home">Home</a>
+                        <a class="nav-link" href="home.php#home">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php#services">Services</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.php#features">Features</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.php#team">Team</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.php#contact">Contact</a>
+                        <a class="nav-link" href="home.php#services">Services</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="cloth.php">Donate Clothes</a>
@@ -52,10 +47,9 @@
                         <a class="nav-link" href="shoe.php">Donate Shoes</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="vermicomposting.php">Vermi Composting</a>
+                        <a class="nav-link" href="logout.php">Logout</a>
                     </li>
                 </ul>
-                <button class="btn btn-primary ms-lg-3" onclick="window.location.href='register.php'">Join Us</button>
             </div>
         </div>
     </nav><!-- //NAVBAR -->
@@ -76,7 +70,6 @@
             </div>
         </div>
     </section>
-
     <!-- CONTACT -->
     <section id="contact">
         <div class="container" style="background-color: white;">
@@ -87,29 +80,53 @@
                     <p>Happiness doesn't result from what we get, but from what we give</p>
                 </div>
             </div>
-            <form action="user.php" class="row g-3 justify-content-center">
+            <form action="" class="row g-3 justify-content-center" method="post" autocomplete="off">
                 <div class="col-md-5">
-                    <input type="text" class="form-control" placeholder=" Enter footwear type (Shoes, Sandals, etc.)">
+                    <input type="text" class="form-control" placeholder=" Enter footwear type (Shoes, Sandals, etc.)" name="type" required>
                 </div>
                 <div class="col-md-5">
-                    <input type="text" class="form-control" placeholder="Enter the gender preference for the footwear">
+                    <input type="text" class="form-control" placeholder="Enter the gender preference for the footwear" name="gender" required>
                 </div>
                 <div class="col-md-5">
-                    <input type="number" class="form-control" placeholder="Enter the size of the footwear">
+                    <input type="number" class="form-control" placeholder="Enter the size of the footwear" name="size" required>
                 </div>
                 <div class="col-md-5">
-                    <input type="number" class="form-control" placeholder="Enter cloth material">
+                    <input type="text" class="form-control" placeholder="Enter footwear material" name="material" required>
                 </div>
                 <div class="col-md-5">
-                    <input type="text" class="form-control" placeholder="Enter cloth color">
+                    <input type="text" class="form-control" placeholder="Enter footwear color" name="color" required>
                 </div>
                 <div class="col-md-5">
-                    <input type="number" class="form-control" placeholder="Enter number of units">
+                    <input type="number" class="form-control" placeholder="Enter number of units" name="units" required>
                 </div>
                 <div class="col-md-10 d-grid">
-                    <button class="btn btn-primary">Submit</button>
+                    <input class="btn btn-primary" type="submit" name="submit" value="Submit">
                 </div>
             </form>
+            <?php
+            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                $msg = "";
+                $type = mysqli_real_escape_string($db,$_POST['type']);
+                $gender = mysqli_real_escape_string($db,$_POST['gender']);
+                $size = mysqli_real_escape_string($db,$_POST['size']);
+                $material = mysqli_real_escape_string($db,$_POST['material']);
+                $color = mysqli_real_escape_string($db,$_POST['color']);
+                $units = mysqli_real_escape_string($db,$_POST['units']);
+                $sql = "INSERT INTO `footwear`(`Type`, `Gender`, `Size`, `Material`, `Color`, `Units`, `UserID`) VALUES ('$type','$gender','$size','$material','$color','$units','$userid')";
+                $result = mysqli_query($db,$sql);
+                if ($result) {
+                    $msg = "Thank you for this donation.";
+                } else {
+                    $msg = "Sorry, couldn't connect to database. Try again.";
+                }
+            }
+            ?>
+            <div class="row justify-content-center">
+                <?php
+                if ($msg != NULL)
+                    echo $msg;
+                ?>
+            </div>
         </div>
     </section><!-- CONTACT -->
     <footer>
@@ -150,7 +167,6 @@
             </div>
         </div>
     </footer>
-
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
@@ -158,8 +174,7 @@
         integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
         crossorigin="anonymous"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
-
     <script src="js/bootstrap.bundle.min.js"></script>
 </body>
 
-</php>
+</html>

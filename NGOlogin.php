@@ -1,6 +1,11 @@
+<?php
+include("include/config.php");
+$msg = "";
+ob_start();
+session_start();
+?>
 <!doctype html>
 <html lang="en">
-
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -12,8 +17,7 @@
     <link rel="stylesheet" href="css/style.css">
     <title>DAAN</title>
 </head>
-
-<body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="70" style="background-image: url('img/vc.jpeg')">
+<body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="70" style="background-image: url('img/ngobg.jpg')">
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg py-3 sticky-top navbar-light bg-white">
         <div class="container">
@@ -42,15 +46,6 @@
                         <a class="nav-link" href="index.php#contact">Contact</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="cloth.php">Donate Clothes</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="books.php">Donate Books</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="shoe.php">Donate Shoes</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="vermicomposting.php">Vermi Composting</a>
                     </li>
                     <li class="nav-item">
@@ -63,22 +58,29 @@
             </div>
         </div>
     </nav><!-- //NAVBAR -->
-    <!-- CONTACT -->
     <section id="contact">
-        <div class="container" style="background-color: white;">
+        <div class="container" style="background-color: white; padding-bottom: 20px;">
             <div class="row mb-5">
                 <div class="col-md-8 mx-auto text-center">
-                    <h6 class="text-primary">Efficient and simple way of vermicomposting</h6>
-                    <h1>Vermi Composting</h1>
-                    <p>Compost is Magic and soil loves Compost</p>
+                    <h6 class="text-primary"></h6>
+                    <h1>NGO LOGIN</h1>
+                    <p>Happiness doesn't result from what we get, but from what we give</p>
                 </div>
             </div>
-            <video width="1300" height="640" controls>
-                <source src="img/sbsi.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-
-
+            <form action="" class="row g-3 justify-content-center">
+                <div class="col-md-5">
+                    <input type="number" class="form-control" placeholder="Enter DIN">
+                </div>
+                <div class="col-md-5">
+                    <input type="password" class="form-control" placeholder="Enter your password">
+                </div>
+                <div class="col-md-10 d-grid">
+                    <button class="btn btn-primary">Login</button>
+                </div>
+                <div class="col-md-4">
+                    <a href="NGOregister.php">Don't have an account? Register now.</a>
+                </div>
+            </form>
         </div>
     </section><!-- CONTACT -->
 
@@ -114,16 +116,13 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
-                        <p class="mb-0">© 2022 copyright all right reserved | Designed by<a class="text-white">CORE</a>
+                        <p class="mb-0">© 2022 copyright all right reserved | Designed by<a class="text-white"> CORE</a>
                         </p>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
-
-
-
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
 </body>

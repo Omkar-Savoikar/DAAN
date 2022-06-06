@@ -1,6 +1,12 @@
+<?php
+include("include/config.php");
+$msg = "";
+ob_start();
+session_start();
+$userid = $_SESSION['userid'];
+?>
 <!doctype html>
 <html lang="en">
-
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -10,17 +16,13 @@
     <link rel="stylesheet" href="css/boxicons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="css/style.css">
-
-
     <title>DAAN</title>
 </head>
-
 <body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="70" style="background-image: url('img/bookbg.jpg')">
-
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg py-3 sticky-top navbar-light bg-white">
         <div class="container">
-            <a class="navbar-brand" href="index.php">
+            <a class="navbar-brand" href="#">
                 <img class="logo" src="img/daan logo.jpg" alt="">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -30,19 +32,10 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php#home">Home</a>
+                        <a class="nav-link" href="home.php#home">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php#services">Services</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.php#features">Features</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.php#team">Team</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.php#contact">Contact</a>
+                        <a class="nav-link" href="home.php#services">Services</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="cloth.php">Donate Clothes</a>
@@ -54,14 +47,12 @@
                         <a class="nav-link" href="shoe.php">Donate Shoes</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="vermicomposting.php">Vermi Composting</a>
+                        <a class="nav-link" href="logout.php">Logout</a>
                     </li>
                 </ul>
-                <button class="btn btn-primary ms-lg-3" onclick="window.location.href='register.php'">Join Us</button>
             </div>
         </div>
     </nav><!-- //NAVBAR -->
-
     <section id="contact">
         <div class="container" style="background-color: white;">
             <div class="row-md-5">
@@ -77,9 +68,7 @@
                 </div>
             </div>
         </div>
-
     </section>
-
     <!-- CONTACT -->
     <section id="contact">
         <div class="container" style="background-color: white;">
@@ -90,40 +79,64 @@
                     <p>Happiness doesn't result from what we get, but from what we give</p>
                 </div>
             </div>
-
-            <form action="user.php" class="row g-3 justify-content-center">
+            <form action="" class="row g-3 justify-content-center" method="post" autocomplete="off">
                 <div class="col-md-5">
-                    <input type="text" class="form-control" placeholder=" Enter the book Name">
+                    <input type="text" class="form-control" placeholder=" Enter the book Name" name="bookName" required>
                 </div>
                 <div class="col-md-5">
-                    <input type="text" class="form-control" placeholder="Enter the author name">
+                    <input type="text" class="form-control" placeholder="Enter the author name" name="author" required>
                 </div>
                 <div class="col-md-5">
-                    <input type="text" class="form-control" placeholder="Enter the genre">
+                    <input type="text" class="form-control" placeholder="Enter the genre" name="genre" required>
                 </div>
                 <div class="col-md-5">
-                    <input type="number" class="form-control" placeholder="Enter the edition number">
+                    <input type="number" class="form-control" placeholder="Enter the edition number" name="edition" required>
                 </div>
                 <div class="col-md-5">
-                    <input type="number" class="form-control" placeholder="Enter the ISBN number">
+                    <input type="number" class="form-control" placeholder="Enter the ISBN number" name="ISBN" required>
                 </div>
                 <div class="col-md-5">
-                    <input type="text" class="form-control" placeholder="Enter the publication house">
+                    <input type="text" class="form-control" placeholder="Enter the publication house" name="publication" required>
                 </div>
                 <div class="col-md-5">
-                    <input type="number" class="form-control" placeholder="Enter number of pages">
+                    <input type="number" class="form-control" placeholder="Enter number of pages" name="pages" required>
                 </div>
                 <div class="col-md-5">
-                    <input type="number" class="form-control" placeholder="Enter number of units">
+                    <input type="number" class="form-control" placeholder="Enter number of units" name="units" required>
                 </div>
                 <div class="col-md-10 d-grid">
-                    <button class="btn btn-primary">Submit</button>
+                    <input class="btn btn-primary" type="submit" name="submit" value="Submit">
                 </div>
             </form>
+            <?php
+            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                $msg = "";
+                $bookName = mysqli_real_escape_string($db,$_POST['bookName']);
+                $author = mysqli_real_escape_string($db,$_POST['author']);
+                $genre = mysqli_real_escape_string($db,$_POST['genre']);
+                $edition = mysqli_real_escape_string($db,$_POST['edition']);
+                $ISBN = mysqli_real_escape_string($db,$_POST['ISBN']);
+                $publication = mysqli_real_escape_string($db,$_POST['publication']);
+                $pages = mysqli_real_escape_string($db,$_POST['pages']);
+                $units = mysqli_real_escape_string($db,$_POST['units']);
 
+                $sql = "INSERT INTO `book`(`Name`, `Genre`, `Author`, `ISBN`, `Edition`, `Publication`, `Pages`, `Units`, `UserID`) VALUES ('$bookName','$genre','$author','$ISBN','$edition','$publication','$pages','$units','$userid')";
+                $result = mysqli_query($db,$sql);
+                if ($result) {
+                    $msg = "Thank you for this donation.";
+                } else {
+                    $msg = "Sorry, couldn't connect to database. Try again.";
+                }
+            }
+            ?>
+            <div class="row justify-content-center">
+                <?php
+                if ($msg != NULL)
+                    echo $msg;
+                ?>
+            </div>
         </div>
     </section><!-- CONTACT -->
-
     <footer>
         <div class="footer-top">
             <div class="container">
@@ -140,7 +153,6 @@
                             <li><a href="index.php">Pricing</a></li>
                         </ul>
                     </div>
-
                     <div class="col-lg-4">
                         <h5 class="text-white">Contact</h5>
                         <ul class="list-unstyled">
@@ -163,11 +175,8 @@
             </div>
         </div>
     </footer>
-
-
-
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
 </body>
 
-</php>
+</html>

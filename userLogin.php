@@ -3,10 +3,10 @@ include("include/config.php");
 $msg = "";
 ob_start();
 session_start();
-$userid = $_SESSION['userid'];
 ?>
 <!doctype html>
 <html lang="en">
+
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -18,7 +18,8 @@ $userid = $_SESSION['userid'];
     <link rel="stylesheet" href="css/style.css">
     <title>DAAN</title>
 </head>
-<body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="70" style="background-image: url('img/clothbg.jpg')">
+
+<body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="70" style="background-image: url('img/donate_two.jpeg')">
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg py-3 sticky-top navbar-light bg-white">
         <div class="container">
@@ -32,91 +33,77 @@ $userid = $_SESSION['userid'];
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="home.php#home">Home</a>
+                        <a class="nav-link" href="index.php#home">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="home.php#services">Services</a>
+                        <a class="nav-link" href="index.php#services">Services</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="cloth.php">Donate Clothes</a>
+                        <a class="nav-link" href="index.php#features">Features</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="books.php">Donate Books</a>
+                        <a class="nav-link" href="index.php#team">Team</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="shoe.php">Donate Shoes</a>
+                        <a class="nav-link" href="index.php#contact">Contact</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="logout.php">Logout</a>
+                        <a class="nav-link" href="vermicomposting.php">Vermi Composting</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="NGOregister.php">Register as NGO</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="userRegister.php">Register as User</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav><!-- //NAVBAR -->
-    <section id="contact">
-        <div class="container" style="background-color: white;">
-            <div class="row-md-5">
-                <div class="card-body">
-                    <center>
-                        <h3 class="card-title"><a href="#" class="text-primary">Guidelines to donate Clothes</a></h3>
-                    </center>
-                    <p><strong>1. All the donated items are subjected to verification.</strong></p>
-                    <p><strong>2. The donated items are expected to be in good conditions and not beyond
-                            repair.</strong></p>
-                    <p><strong>3. The items should be cleaned before donating.</strong></p>
-                    <center><a href="#clothform" class="btn btn-success">Donate NOW</a></center>
-                </div>
-            </div>
-        </div>
-    </section>
     <!-- CONTACT -->
     <section id="contact">
         <div class="container" style="background-color: white;">
             <div class="row mb-5">
                 <div class="col-md-8 mx-auto text-center">
                     <h6 class="text-primary">GET IN TOUCH WITH THE NGO's</h6>
-                    <h1 id="clothform">CLOTH DONATION</h1>
+                    <h1 id="clothform">REGISTER USER</h1>
                     <p>Happiness doesn't result from what we get, but from what we give</p>
                 </div>
             </div>
             <form action="" class="row g-3 justify-content-center" method="post" autocomplete="off">
                 <div class="col-md-5">
-                    <input type="text" class="form-control" placeholder="Enter Cloth type (Tshirt, Shirt, Jeans, etc)" name="type" required>
+                    <input type="email" class="form-control" placeholder="Enter E-mail" name="emailid" required>
                 </div>
                 <div class="col-md-5">
-                    <input type="text" class="form-control" placeholder="Enter the gender preference for the cloth" name="gender" required>
-                </div>
-                <div class="col-md-5">
-                    <input type="text" class="form-control" placeholder="Enter the cloth size (XS, S, M, L, XL, XXL)" name="size" required>
-                </div>
-                <div class="col-md-5">
-                    <input type="text" class="form-control" placeholder="Enter cloth material" name="material" required>
-                </div>
-                <div class="col-md-5">
-                    <input type="text" class="form-control" placeholder="Enter cloth color" name="color" required>
-                </div>
-                <div class="col-md-5">
-                    <input type="number" class="form-control" placeholder="Enter number of units" name="units" required>
+                    <input type="password" class="form-control" placeholder="Enter your password" minlength="5" name="password" required>
                 </div>
                 <div class="col-md-10 d-grid">
-                    <input class="btn btn-primary" type="submit" name="submit" value="Submit">
+                    <input class="btn btn-primary" type="submit" name="submit" value="Login">
+                </div>
+                <div class="col-md-4">
+                    <a href="userRegister.php">Don't have an account? Register now.</a>
                 </div>
             </form>
             <?php
             if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $msg = "";
-                $type = mysqli_real_escape_string($db,$_POST['type']);
-                $gender = mysqli_real_escape_string($db,$_POST['gender']);
-                $size = mysqli_real_escape_string($db,$_POST['size']);
-                $material = mysqli_real_escape_string($db,$_POST['material']);
-                $color = mysqli_real_escape_string($db,$_POST['color']);
-                $units = mysqli_real_escape_string($db,$_POST['units']);
-                $sql = "INSERT INTO `clothes`(`Type`, `Gender`, `Size`, `Material`, `Color`, `Units`, `UserID`) VALUES ('$type','$gender','$size','$material','$color','$units','$userid')";
+                $emailid = mysqli_real_escape_string($db,$_POST['emailid']);
+                $password1 = mysqli_real_escape_string($db,$_POST['password']);
+                if (($emailid == "admin@admin.com") && ($password1 == "admin")) {
+                    $_SESSION['userid'] = "0";
+                    header("location: admin.php");
+                }
+                $password = md5($password1);
+                $sql = "SELECT * FROM `user` WHERE `EmailId` = '$emailid' AND `Password` = '$password'";
                 $result = mysqli_query($db,$sql);
-                if ($result) {
-                    $msg = "Thank you for this donation.";
+                $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+                $count = mysqli_num_rows($result);
+                if ($count == 1) {
+                    $userid = $row['UserID'];
+                    $_SESSION['userid'] = $userid;
+                    header("location: home.php");
                 } else {
-                    $msg = "Sorry, couldn't connect to database. Try again.";
+                    $msg = "Error. Entered details are wrong. Please enter proper details";
                 }
             }
             ?>
@@ -128,6 +115,7 @@ $userid = $_SESSION['userid'];
             </div>
         </div>
     </section><!-- CONTACT -->
+
     <footer>
         <div class="footer-top">
             <div class="container">
@@ -144,6 +132,7 @@ $userid = $_SESSION['userid'];
                             <li><a href="index.php">Pricing</a></li>
                         </ul>
                     </div>
+
                     <div class="col-lg-4">
                         <h5 class="text-white">Contact</h5>
                         <ul class="list-unstyled">
@@ -167,6 +156,8 @@ $userid = $_SESSION['userid'];
             </div>
         </div>
     </footer>
+
+
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>

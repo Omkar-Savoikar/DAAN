@@ -2,7 +2,6 @@
 include("include/config.php");
 $msg = "";
 ob_start();
-session_start();
 ?>
 <!doctype html>
 <html lang="en">
@@ -51,44 +50,30 @@ session_start();
                 </div>
                 <div class="col-md-6 col-lg-4">
                     <div class="card my-3">
-                        <div class="card-thumbnail">
-                            <img src="https://www.markuptag.com/images/image-one.jpg" class="img-fluid" alt="thumbnail">
-                        </div>
                         <div class="card-body">
-                            <h3 class="card-title"><a href="#" class="text-secondary">What is Lorem Ipsum?</a></h3>
-                            <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting
-                                industry. Lorem Ipsum has been the industry's standard dummy text</p>
-                            <a href="#" class="btn btn-success">Accept</a>
-                            <a href="#" class="btn btn-danger">Decline</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card my-3">
-                        <div class="card-thumbnail">
-                            <img src="https://www.markuptag.com/images/image-two.jpg" class="img-fluid" alt="thumbnail">
-                        </div>
-                        <div class="card-body">
-                            <h3 class="card-title"><a href="#" class="text-secondary">Why do we use it?</a></h3>
-                            <p class="card-text">It is a long established fact that a reader will be distracted by the
-                                readable content of a page when looking at its layout. The point of using Lorem</p>
-                            <a href="#" class="btn btn-success">Accept</a>
-                            <a href="#" class="btn btn-danger">Decline</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card my-3">
-                        <div class="card-thumbnail">
-                            <img src="https://www.markuptag.com/images/image-three.jpg" class="img-fluid"
-                                alt="thumbnail">
-                        </div>
-                        <div class="card-body">
-                            <h3 class="card-title"><a href="#" class="text-secondary">Where does it come from?</a></h3>
-                            <p class="card-text">Contrary to popular belief, Lorem Ipsum is not simply random text. It
-                                has roots in a piece of classical Latin literature from 45 BC, making it</p>
-                            <a href="#" class="btn btn-success">Accept</a>
-                            <a href="#" class="btn btn-danger">Decline</a>
+                            <h3 class="card-title"><a href="#" class="text-secondary">NGO Name</a></h3>
+                            <div class="card-text">
+                                NGO Data
+                            </div>
+                            <?php
+                            if(array_key_exists('button1', $_POST)) {
+                                accept();
+                            }
+                            else if(array_key_exists('button2', $_POST)) {
+                                decline();
+                            }
+                            function accept() {
+                                echo "Accept";
+                            }
+
+                            function decline() {
+                                echo "Decline";
+                            }
+                            ?>
+                            <form method="post">
+                                <input class="btn btn-success" type="submit" name="button1" value="Accept">
+                                <input class="btn btn-danger" type="submit" name="button2" value="Decline">
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -136,4 +121,5 @@ session_start();
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

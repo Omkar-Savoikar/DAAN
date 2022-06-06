@@ -1,3 +1,7 @@
+<?php
+include("include/config.php");
+$msg = "";
+?>
 <!doctype html>
 <html lang="en">
 
@@ -10,13 +14,10 @@
     <link rel="stylesheet" href="css/boxicons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="css/style.css">
-
-
     <title>DAAN</title>
 </head>
 
 <body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="70">
-
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg py-3 sticky-top navbar-light bg-white">
         <div class="container">
@@ -45,23 +46,18 @@
                         <a class="nav-link" href="index.php#contact">Contact</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="cloth.php">Donate Clothes</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="books.php">Donate Books</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="shoe.php">Donate Shoes</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="vermicomposting.php">Vermi Composting</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="NGOregister.php">Register as NGO</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="userRegister.php">Register as User</a>
+                    </li>
                 </ul>
-                <button class="btn btn-primary ms-lg-3" onclick="window.location.href='register.php'">Join Us</button>
             </div>
         </div>
     </nav><!-- //NAVBAR -->
-
     <!-- HERO -->
     <div class="hero vh-100 d-flex align-items-center" id="home">
         <div class="container">
@@ -74,7 +70,6 @@
             </div>
         </div>
     </div><!-- //HERO -->
-
     <!-- SERVICES -->
     <section id="services">
         <div class="container">
@@ -86,17 +81,17 @@
                 </div>
             </div>
             <div class="row g-4">
-                <a class="col-lg-4 col-sm-6" href="cloth.php">
+                <div class="col-lg-4 col-sm-6">
                     <div class="service card-effect bounceInUp">
                         <div class="iconbox">
                             <span class="iconify" data-icon="bx:closet"></span>
                         </div>
                         <h5 class="mt-4 mb-2">Donate Clothes</h5>
                         <p>Stuck with where and whom to donate your old clothes??? Don't worry we're here to help you!!
-                            Schedule a donation pickup. Donate reusable clothes.</p>
+                            Schedule a donation pickup.</p>
                     </div>
-                </a>
-                <a class="col-lg-4 col-sm-6" href="books.php">
+                </div>
+                <div class="col-lg-4 col-sm-6">
                     <div class="service card-effect">
                         <div class="iconbox">
                             <span class="iconify" data-icon="bx:book-open"></span>
@@ -105,8 +100,8 @@
                         <p>Want to donate books?? You are at right place.. Just fill the details and donate your books
                             easily!! </p>
                     </div>
-                </a>
-                <a class="col-lg-4 col-sm-6" href="shoe.php">
+                </div>
+                <div class="col-lg-4 col-sm-6">
                     <div class="service card-effect">
                         <div class="iconbox">
                             <span class="iconify" data-icon="bx:walk"></span>
@@ -115,11 +110,10 @@
                         <p> it's always better to donate your shoes than to dump them in your trash can, which would
                             eventually get dumped in a landfill.</p>
                     </div>
-                </a>
+                </div>
             </div>
         </div>
     </section><!-- SERVICES -->
-
     <!-- FEATURES -->
     <section class="row w-100 py-0 bg-light" id="features">
         <div class="col-lg-6 col-img"></div>
@@ -128,7 +122,7 @@
                 <div class="row">
                     <div class="col-md-10 offset-md-1">
                         <h6 class="text-primary">WHY TO CHOOSE US</h6>
-                        <h1>Best solution for Wastage</h1>
+                        <h3>Best solution for Unused Resources</h3>
                         <p>This is the best place to help you donate your clothes, books and shoes. We can't help
                             everyone, but... everyone can help someone.</p>
 
@@ -167,7 +161,6 @@
             </div>
         </div>
     </section>
-
     <section id="team">
         <div class="container">
             <div class="row mb-5">
@@ -182,34 +175,37 @@
                     <div class="team-member card-effect">
                         <img src="img/team1.jpg" alt="">
                         <h5 class="mb-0 mt-4">Omkar savoikar</h5>
-                        <p>Web Developer</p>
+                        <p class="mb-0">Web Developer</p>
+                        <p class="mt-0">2104</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-sm-6">
                     <div class="team-member card-effect">
                         <img src="img/team2.jpg" alt="">
                         <h5 class="mb-0 mt-4">Ramjeet Faldessai</h5>
-                        <p>Web Developer</p>
+                        <p class="mb-0">Web Developer</p>
+                        <p class="mt-0">2114</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-sm-6">
                     <div class="team-member card-effect">
                         <img src="img/team3.jpg" alt="">
                         <h5 class="mb-0 mt-4">Suraj Pandey</h5>
-                        <p>Web Developer</p>
+                        <p class="mb-0">Web Developer</p>
+                        <p class="mt-0">2122</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-sm-6">
                     <div class="team-member card-effect">
                         <img src="img/myimage.jpg" alt="">
-                        <h5 class="mb-0 mt-4">Varad prabhugaonkar</h5>
-                        <p>Web Developer</p>
+                        <h5 class="mb-0 mt-4">Varad Prabhugaonkar</h5>
+                        <p class="mb-0">Web Developer</p>
+                        <p class="mt-0">2123</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
     <!-- CONTACT -->
     <section id="contact">
         <div class="container">
@@ -220,29 +216,49 @@
                     <p></p>
                 </div>
             </div>
-
-            <form action="" class="row g-3 justify-content-center">
+            <form action="" class="row g-3 justify-content-center" method="post" autocomplete="off">
                 <div class="col-md-5">
-                    <input type="text" class="form-control" placeholder="Full Name">
+                    <input type="text" class="form-control" placeholder="Full Name" name="fullname" required>
                 </div>
                 <div class="col-md-5">
-                    <input type="text" class="form-control" placeholder="Enter E-mail">
+                    <input type="text" class="form-control" placeholder="Enter E-mail" name="email" required>
                 </div>
                 <div class="col-md-10">
-                    <input type="text" class="form-control" placeholder="Enter Subject">
+                    <input type="text" class="form-control" placeholder="Enter Subject" name="subject" required>
                 </div>
                 <div class="col-md-10">
-                    <textarea name="" id="" cols="30" rows="5" class="form-control"
-                        placeholder="Enter Message"></textarea>
+                    <textarea cols="30" rows="5" class="form-control" placeholder="Enter Message" name="message" required></textarea>
                 </div>
                 <div class="col-md-10 d-grid">
-                    <button class="btn btn-primary">Contact</button>
+                    <input class="btn btn-primary" type="submit" name="submit" value="Submit">
                 </div>
             </form>
-
+            <?php
+            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                $msg = "";
+                $username = mysqli_real_escape_string($db,$_POST['fullname']);
+                $emailid = mysqli_real_escape_string($db,$_POST['email']);
+                $subject = mysqli_real_escape_string($db,$_POST['subject']);
+                $message = mysqli_real_escape_string($db,$_POST['message']);
+            
+                $sql = "INSERT INTO `contact` (`Name`, `EmailID`, `Subject`, `Message`) VALUES ('$username','$emailid','$subject','$message')";
+                $result = mysqli_query($db,$sql);
+            
+                if ($result) {
+                    $msg = "Your message is recorded.";
+                } else {
+                    $msg = "Sorry, your message couldn't be recorded. Try again.";
+                }
+            }
+            ?>
+            <div class="row justify-content-center">
+                <?php
+                if ($msg != NULL)
+                    echo $msg;
+                ?>
+            </div>
         </div>
     </section><!-- CONTACT -->
-
     <footer>
         <div class="footer-top">
             <div class="container">
@@ -288,10 +304,8 @@
             </div>
         </div>
     </footer>
-
-
     <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
 </body>
 
-</php>
+</html>
