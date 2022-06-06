@@ -3,8 +3,9 @@ include("include/config.php");
 $msg = "";
 ob_start();
 session_start();
+$DIN = $_SESSION['DIN'];
 ?>
-<!doctype html>
+<!DOCTYPE HTML>
 <html lang="en">
 <head>
     <!-- Required meta tags -->
@@ -49,49 +50,153 @@ session_start();
                 <div class="col-12">
                     <h2 class="mb-3 text-primary">NGO Dashboard</h2>
                 </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card my-3">
-                        <div class="card-thumbnail">
-                            <img src="https://www.markuptag.com/images/image-one.jpg" class="img-fluid" alt="thumbnail">
+
+                <?php
+                $sql = "SELECT * FROM `ngo` WHERE `DIN` = '$DIN'";
+                $result = mysqli_query($db, $sql);
+                $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+                $taluka = $row['Taluka'];
+                $sql = "SELECT * FROM `user` WHERE `Taluka` = '$taluka'";
+                $result = mysqli_query($db, $sql);
+                $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+                $count = mysqli_num_rows($result);
+                if($count == 0) {
+                    echo ('<div class="text-secondary">No new requests</div>');
+                }
+                while ($row) {
+                    $user = $row['UserID'];
+                    $sql = "SELECT * FROM `book` WHERE `UserID` = $user";
+                    $result = mysqli_query($db, $sql);
+                    $req = mysqli_fetch_array($result,MYSQLI_ASSOC);
+                    while ($req) {
+                    ?>
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card my-3">
+                                <div class="card-body">
+                                    <h3 class="card-title"><a href="#" class="text-secondary">Book</a></h3>
+                                    <div class="card-text">
+                                        <p>Book Name: <?php echo $req['Name']; ?> </p>
+                                        <p>Author: <?php echo $req['Author']; ?> </p>
+                                        <p>Genre: <?php echo $req['Genre']; ?> </p>
+                                        <p>ISBN: <?php echo $req['ISBN']; ?> </p>
+                                        <p>Edition: <?php echo $req['Edition']; ?> </p>
+                                        <p>Publication House: <?php echo $req['Publication']; ?> </p>
+                                        <p>No. of Pages: <?php echo $req['Pages']; ?> </p>
+                                        <p>Units: <?php echo $req['Units']; ?> </p>
+                                        <p>Donar: <?php echo $row['Name']; ?> </p>
+                                        <p>Address: <?php echo 'H.No. ' . $row['H.No'] . ', ' . $row['Area'] . ', ' . $row['City'] . ', ' . $row['Taluka'] . ', ' . $row['District']?> </p>
+                                        <p>Mobile No: <?php echo $row['Mobile'] ?> </p>
+                                        <p>EmailID: <?php echo $row['EmailId'] ?> </p>
+                                    </div>
+                                    <?php
+                                    if(array_key_exists('button1', $_POST)) {
+                                        echo "Accept";
+                                        // on accept, select the ngo data from the ngorequest, change status to 'Accepted'
+                                        // Also enter ngo data in ngo table
+                                    }
+                                    else if(array_key_exists('button2', $_POST)) {
+                                        echo "Decline";
+                                        // on decline, select the ngo data from the ngorequest, change status to 'Declined'
+                                    }
+                                    ?>
+                                    <form method="post" class="row justify-content-center">
+                                        <input class="btn btn-success col-md-5" type="submit" name="button1" value="Accept">
+                                        <input class="btn btn-danger col-md-5" type="submit" name="button2" value="Decline">
+                                    </form>
+                                </div>
+                            </div>
                         </div>
-                        <div class="card-body">
-                            <h3 class="card-title"><a href="#" class="text-secondary">What is Lorem Ipsum?</a></h3>
-                            <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting
-                                industry. Lorem Ipsum has been the industry's standard dummy text</p>
-                            <a href="#" class="btn btn-success">Accept</a>
-                            <a href="#" class="btn btn-danger">Decline</a>
+                    <?php
+                        $req = mysqli_fetch_array($result,MYSQLI_ASSOC);
+                    }
+                    $sql = "SELECT * FROM `clothes` WHERE `UserID` = $user";
+                    $result = mysqli_query($db, $sql);
+                    $req = mysqli_fetch_array($result,MYSQLI_ASSOC);
+                    while ($req) {
+                        $clothID = $req['ClothId'];
+                    ?>
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card my-3">
+                                <div class="card-body">
+                                    <h3 class="card-title"><a href="#" class="text-secondary">Clothes</a></h3>
+                                    <div class="card-text">
+                                        <p>Type: <?php echo $req['Type']; ?> </p>
+                                        <p>preferred Gender: <?php echo $req['Gender']; ?> </p>
+                                        <p>Size: <?php echo $req['Size']; ?> </p>
+                                        <p>Material: <?php echo $req['Material']; ?> </p>
+                                        <p>Color: <?php echo $req['Color']; ?> </p>
+                                        <p>Units: <?php echo $req['Units']; ?> </p>
+                                        <p>Donar: <?php echo $row['Name']; ?> </p>
+                                        <p>Address: <?php echo 'H.No. ' . $row['H.No'] . ', ' . $row['Area'] . ', ' . $row['City'] . ', ' . $row['Taluka'] . ', ' . $row['District']?> </p>
+                                        <p>Mobile No: <?php echo $row['Mobile'] ?> </p>
+                                        <p>EmailID: <?php echo $row['EmailId'] ?> </p>
+                                    </div>
+                                    <?php
+                                    if(array_key_exists('button1', $_POST)) {
+                                        echo "Accept";
+                                        // on accept, select the ngo data from the ngorequest, change status to 'Accepted'
+                                        // Also enter ngo data in ngo table
+                                    }
+                                    else if(array_key_exists('button2', $_POST)) {
+                                        echo "Decline";
+                                        // on decline, select the ngo data from the ngorequest, change status to 'Declined'
+                                    }
+                                    ?>
+                                    <form method="post" class="row justify-content-center">
+                                        <input class="btn btn-success col-md-5" type="submit" name="button1" value="Accept">
+                                        <input class="btn btn-danger col-md-5" type="submit" name="button2" value="Decline">
+                                    </form>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card my-3">
-                        <div class="card-thumbnail">
-                            <img src="https://www.markuptag.com/images/image-two.jpg" class="img-fluid" alt="thumbnail">
+                    <?php
+                        $req = mysqli_fetch_array($result,MYSQLI_ASSOC);
+                    }
+                    $sql = "SELECT * FROM `footwear` WHERE `UserID` = $user";
+                    $result = mysqli_query($db, $sql);
+                    $req = mysqli_fetch_array($result,MYSQLI_ASSOC);
+                    while ($req) {
+                    ?>
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card my-3">
+                                <div class="card-body">
+                                    <h3 class="card-title"><a href="#" class="text-secondary">Clothes</a></h3>
+                                    <div class="card-text">
+                                        <p>Type: <?php echo $req['Type']; ?> </p>
+                                        <p>preferred Gender: <?php echo $req['Gender']; ?> </p>
+                                        <p>Size: <?php echo $req['Size']; ?> </p>
+                                        <p>Material: <?php echo $req['Material']; ?> </p>
+                                        <p>Color: <?php echo $req['Color']; ?> </p>
+                                        <p>Units: <?php echo $req['Units']; ?> </p>
+                                        <p>Donar: <?php echo $row['Name']; ?> </p>
+                                        <p>Address: <?php echo 'H.No. ' . $row['H.No'] . ', ' . $row['Area'] . ', ' . $row['City'] . ', ' . $row['Taluka'] . ', ' . $row['District']?> </p>
+                                        <p>Mobile No: <?php echo $row['Mobile'] ?> </p>
+                                        <p>EmailID: <?php echo $row['EmailId'] ?> </p>
+                                    </div>
+                                    <?php
+                                    if(array_key_exists('button1', $_POST)) {
+                                        echo "Accept";
+                                        // on accept, select the ngo data from the ngorequest, change status to 'Accepted'
+                                        // Also enter ngo data in ngo table
+                                    }
+                                    else if(array_key_exists('button2', $_POST)) {
+                                        echo "Decline";
+                                        // on decline, select the ngo data from the ngorequest, change status to 'Declined'
+                                    }
+                                    ?>
+                                    <form method="post" class="row justify-content-center">
+                                        <input class="btn btn-success col-md-5" type="submit" name="button1" value="Accept">
+                                        <input class="btn btn-danger col-md-5" type="submit" name="button2" value="Decline">
+                                    </form>
+                                </div>
+                            </div>
                         </div>
-                        <div class="card-body">
-                            <h3 class="card-title"><a href="#" class="text-secondary">Why do we use it?</a></h3>
-                            <p class="card-text">It is a long established fact that a reader will be distracted by the
-                                readable content of a page when looking at its layout. The point of using Lorem</p>
-                            <a href="#" class="btn btn-success">Accept</a>
-                            <a href="#" class="btn btn-danger">Decline</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card my-3">
-                        <div class="card-thumbnail">
-                            <img src="https://www.markuptag.com/images/image-three.jpg" class="img-fluid"
-                                alt="thumbnail">
-                        </div>
-                        <div class="card-body">
-                            <h3 class="card-title"><a href="#" class="text-secondary">Where does it come from?</a></h3>
-                            <p class="card-text">Contrary to popular belief, Lorem Ipsum is not simply random text. It
-                                has roots in a piece of classical Latin literature from 45 BC, making it</p>
-                            <a href="#" class="btn btn-success">Accept</a>
-                            <a href="#" class="btn btn-danger">Decline</a>
-                        </div>
-                    </div>
-                </div>
+                    <?php
+                        $req = mysqli_fetch_array($result,MYSQLI_ASSOC);
+                    }
+                    $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+                }
+                ?>
             </div>
         </div>
     </section>

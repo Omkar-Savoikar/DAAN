@@ -133,7 +133,7 @@ session_start();
                     $taluka = mysqli_real_escape_string($db,$_POST['taluka']);
                     $district = mysqli_real_escape_string($db,$_POST['district']);
                     $pincode = mysqli_real_escape_string($db,$_POST['pincode']);
-                    $sql = "INSERT INTO `ngorequest` (`DIN`, `NGO_Name`, `H.No`, `Area`, `City`, `Taluka`, `District`, `Pincode`, `Mobile`, `EmailId`, `Password`) VALUES ('$DIN', '$NGOname', '$hno', '$area', '$city', '$taluka', '$district', '$pincode', '$phone', '$emailid', '$password')";
+                    $sql = "INSERT INTO `ngorequest` (`DIN`, `NGO_Name`, `H.No`, `Area`, `City`, `Taluka`, `District`, `Pincode`, `Mobile`, `EmailId`, `Password`, `Status`) VALUES ('$DIN', '$NGOname', '$hno', '$area', '$city', '$taluka', '$district', '$pincode', '$phone', '$emailid', '$password', 'NULL')";
                     $result = mysqli_query($db,$sql);
                     if ($result) {
                         echo '<script>window.alert("Your registration request was successfully registered. You will be notified of the registration process soon.");</script>';

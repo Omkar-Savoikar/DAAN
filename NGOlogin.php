@@ -67,20 +67,45 @@ session_start();
                     <p>Happiness doesn't result from what we get, but from what we give</p>
                 </div>
             </div>
-            <form action="" class="row g-3 justify-content-center">
+            <form action="" class="row g-3 justify-content-center" method="post" autocomplete="off">
                 <div class="col-md-5">
-                    <input type="number" class="form-control" placeholder="Enter DIN">
+                    <input type="number" class="form-control" placeholder="Enter DIN" name="DIN" required>
                 </div>
                 <div class="col-md-5">
-                    <input type="password" class="form-control" placeholder="Enter your password">
+                    <input type="password" class="form-control" placeholder="Enter your password" minlength="5" name="password" required>
                 </div>
                 <div class="col-md-10 d-grid">
-                    <button class="btn btn-primary">Login</button>
+                <input class="btn btn-primary" type="submit" name="submit" value="Login">
                 </div>
                 <div class="col-md-4">
                     <a href="NGOregister.php">Don't have an account? Register now.</a>
                 </div>
             </form>
+            <?php
+            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                $msg = "";
+                $DIN = mysqli_real_escape_string($db,$_POST['DIN']);
+                $password1 = mysqli_real_escape_string($db,$_POST['password']);
+                $password = md5($password1);
+                $sql = "SELECT * FROM `ngo` WHERE `DIN` = '$DIN' AND `Password` = '$password'";
+                $result = mysqli_query($db,$sql);
+                $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+                $count = mysqli_num_rows($result);
+                if ($count == 1) {
+                    $DIN = $row['DIN'];
+                    $_SESSION['DIN'] = $DIN;
+                    header("location: ngodashboard.php");
+                } else {
+                    $msg = "Error. Entered details are wrong. Please enter proper details";
+                }
+            }
+            ?>
+            <div class="row justify-content-center">
+                <?php
+                if ($msg != NULL)
+                    echo $msg;
+                ?>
+            </div>
         </div>
     </section><!-- CONTACT -->
 

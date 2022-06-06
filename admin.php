@@ -46,37 +46,73 @@ ob_start();
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <h2 class="mb-3 text-primary">NGO Dashboard</h2>
+                    <h2 class="mb-3 text-primary">NEW NGO REGISTRATION REQESTS</h2>
                 </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card my-3">
-                        <div class="card-body">
-                            <h3 class="card-title"><a href="#" class="text-secondary">NGO Name</a></h3>
-                            <div class="card-text">
-                                NGO Data
-                            </div>
-                            <?php
-                            if(array_key_exists('button1', $_POST)) {
-                                accept();
-                            }
-                            else if(array_key_exists('button2', $_POST)) {
-                                decline();
-                            }
-                            function accept() {
-                                echo "Accept";
-                            }
 
-                            function decline() {
-                                echo "Decline";
-                            }
-                            ?>
-                            <form method="post">
-                                <input class="btn btn-success" type="submit" name="button1" value="Accept">
-                                <input class="btn btn-danger" type="submit" name="button2" value="Decline">
-                            </form>
+                <?php
+                $sql = "SELECT * FROM `ngorequest` WHERE `Status` = 'NULL'";
+                $result = mysqli_query($db,$sql);
+                $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+                $count = mysqli_num_rows($result);
+                if ($count == 0) {
+                    echo ('<div class="text-secondary">No new requests</div>');
+                } else if ($count == 1) {
+                    echo ('<div class="text-secondary">' . $count . ' new request</div>');
+                } else {
+                    echo ('<div class="text-secondary">' . $count . ' new requests</div>');
+                }
+                while ($row) {
+                ?>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card my-3">
+                            <div class="card-body">
+                                <h3 class="card-title text-secondary"> <?php echo $row['NGO_Name'] ?> </h3>
+                                <div class="card-text">
+                                    <p>DIN: <?php echo $row['DIN'] ?> </p>
+                                    <p>Mobile No: <?php echo $row['Mobile'] ?> </p>
+                                    <p>EmailID: <?php echo $row['EmailID'] ?> </p>
+                                    <p>Address: <?php echo 'H.No. ' . $row['H.No'] . ', ' . $row['Area'] . ', ' . $row['City'] . ', ' . $row['Taluka'] . ', ' . $row['District']?> </p>
+                                </div>
+                                <?php
+                                if(array_key_exists('button1', $_POST)) {
+                                    // echo "Accept";
+                                    $DIN = $row['DIN'];
+                                    $NGOname = $row['NGO_Name'];
+                                    $hno = $row['H.No'];
+                                    $area = $row['Area'];
+                                    $city = $row['City'];
+                                    $taluka = $row['Taluka'];
+                                    $district = $row['District'];
+                                    $pincode = $row['Pincode'];
+                                    $phone = $row['Mobile'];
+                                    $emailid = $row['EmailId'];
+                                    $password = $row['Password'];
+                                    $sql = "UPDATE `ngorequest` SET `Status` = 'Accepted' WHERE `DIN` = '$DIN'";
+                                    $result = mysqli_query($db, $sql);
+                                    if ($result) {
+                                        $sql = "INSERT INTO `ngo` (`DIN`, `NGO_Name`, `H.No`, `Area`, `City`, `Taluka`, `District`, `Pincode`, `Mobile`, `EmailId`, `Password`) VALUES ('$DIN', '$NGOname', '$hno', '$area', '$city', '$taluka', '$district', '$pincode', '$phone', '$emailid', '$password')";
+                                        $result = mysqli_query($db,$sql);
+                                    }
+                                    // refresh maybe
+                                }
+                                else if(array_key_exists('button2', $_POST)) {
+                                    // echo "Decline";
+                                    $sql = "UPDATE `ngorequest` SET `Status` = 'Declined' WHERE `DIN` = '$DIN'";
+                                    $result = mysqli_query($db, $sql);
+                                    // on decline, select the ngo data from the ngorequest, change status to 'Declined'
+                                }
+                                ?>
+                                <form method="post" class="row justify-content-center">
+                                    <input class="btn btn-success col-md-5" type="submit" name="button1" value="Accept">
+                                    <input class="btn btn-danger col-md-5" type="submit" name="button2" value="Decline">
+                                </form>
+                            </div>
                         </div>
                     </div>
-                </div>
+                <?php
+                    $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+                }
+                ?>
             </div>
         </div>
     </section>
