@@ -46,9 +46,6 @@ session_start();
                         <a class="nav-link" href="index.php#contact">Contact</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="vermicomposting.php">Vermi Composting</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="NGOlogin.php">Login as NGO</a>
                     </li>
                     <li class="nav-item">

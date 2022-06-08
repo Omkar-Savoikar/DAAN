@@ -57,9 +57,6 @@ session_start();
                         <a class="nav-link" href="shoe.php">Donate Shoes</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="vermicomposting.php">Vermi Composting</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="NGOregister.php">Register as NGO</a>
                     </li>
                     <li class="nav-item">

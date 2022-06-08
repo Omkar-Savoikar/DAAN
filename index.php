@@ -46,9 +46,6 @@ $msg = "";
                         <a class="nav-link" href="index.php#contact">Contact</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="vermicomposting.php">Vermi Composting</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="NGOregister.php">Register as NGO</a>
                     </li>
                     <li class="nav-item">
