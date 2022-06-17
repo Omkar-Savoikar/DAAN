@@ -63,7 +63,7 @@ session_start();
             <div class="row mb-5">
                 <div class="col-md-8 mx-auto text-center">
                     <h6 class="text-primary">GET IN TOUCH WITH THE NGO's</h6>
-                    <h1 id="clothform">REGISTER USER</h1>
+                    <h1 id="clothform">LOGIN USER</h1>
                     <p>Happiness doesn't result from what we get, but from what we give</p>
                 </div>
             </div>

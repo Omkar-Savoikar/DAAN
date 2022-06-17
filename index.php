@@ -37,9 +37,6 @@ $msg = "";
                         <a class="nav-link" href="index.php#services">Services</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php#features">Features</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="index.php#team">Team</a>
                     </li>
                     <li class="nav-item">
@@ -95,7 +92,7 @@ $msg = "";
                         </div>
                         <h5 class="mt-4 mb-2">Donate Books</h5>
                         <p>Want to donate books?? You are at right place.. Just fill the details and donate your books
-                            easily!! </p>
+                            easily!! Register to donate. </p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-sm-6">
@@ -111,53 +108,6 @@ $msg = "";
             </div>
         </div>
     </section><!-- SERVICES -->
-    <!-- FEATURES -->
-    <section class="row w-100 py-0 bg-light" id="features">
-        <div class="col-lg-6 col-img"></div>
-        <div class="col-lg-6 py-5">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-10 offset-md-1">
-                        <h6 class="text-primary">WHY TO CHOOSE US</h6>
-                        <h3>Best solution for Unused Resources</h3>
-                        <p>This is the best place to help you donate your clothes, books and shoes. We can't help
-                            everyone, but... everyone can help someone.</p>
-
-                        <div class="feature d-flex mt-5">
-                            <div class="iconbox me-3">
-                                <i class='bx bxs-comment-edit'></i>
-                            </div>
-                            <div>
-                                <h5>Book Donation</h5>
-                                <p>Books!! They are the greatest gift one person can give another. Instead of throwing
-                                    them to the trash We help you to deliver it to the right plcae. </p>
-                            </div>
-                        </div>
-                        <div class="feature d-flex">
-                            <div class="iconbox me-3">
-                                <i class='bx bxs-user-circle'></i>
-                            </div>
-                            <div>
-                                <h5>Clothes Donation</h5>
-                                <p>That dress you no longer need can help someone else find a job. Our portal will help
-                                    you to get to the right person.</p>
-                            </div>
-                        </div>
-                        <div class="feature d-flex">
-                            <div class="iconbox me-3">
-                                <i class='bx bxs-download'></i>
-                            </div>
-                            <div>
-                                <h5>Shoe Donation</h5>
-                                <p>Old shoes doesnt fit you then We are here for you to find the person who fits your
-                                    old shoe size.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
     <section id="team">
         <div class="container">
             <div class="row mb-5">
@@ -170,33 +120,33 @@ $msg = "";
             <div class="row text-center g-4">
                 <div class="col-lg-3 col-sm-6">
                     <div class="team-member card-effect">
-                        <img src="img/team1.jpg" alt="">
+                        <img src="img/omkar.jpg" alt="">
                         <h5 class="mb-0 mt-4">Omkar savoikar</h5>
-                        <p class="mb-0">Web Developer</p>
+                        <p class="mb-0">Backend Developer</p>
                         <p class="mt-0">2104</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-sm-6">
                     <div class="team-member card-effect">
-                        <img src="img/team2.jpg" alt="">
+                        <img src="img/ramjeet.jpg" alt="">
                         <h5 class="mb-0 mt-4">Ramjeet Faldessai</h5>
-                        <p class="mb-0">Web Developer</p>
+                        <p class="mb-0">Backend Developer</p>
                         <p class="mt-0">2114</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-sm-6">
                     <div class="team-member card-effect">
-                        <img src="img/team3.jpg" alt="">
+                        <img src="img/suraj.jpg" alt="">
                         <h5 class="mb-0 mt-4">Suraj Pandey</h5>
-                        <p class="mb-0">Web Developer</p>
+                        <p class="mb-0">Marketing</p>
                         <p class="mt-0">2122</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-sm-6">
                     <div class="team-member card-effect">
-                        <img src="img/myimage.jpg" alt="">
+                        <img src="img/varad.jpg" alt="">
                         <h5 class="mb-0 mt-4">Varad Prabhugaonkar</h5>
-                        <p class="mb-0">Web Developer</p>
+                        <p class="mb-0">FrontEnd Developer</p>
                         <p class="mt-0">2123</p>
                     </div>
                 </div>
@@ -276,7 +226,7 @@ $msg = "";
                         <h5 class="text-white">Contact</h5>
                         <ul class="list-unstyled">
                             <li>Address: Goa University</li>
-                            <li>Email: jackson.graham@example.com</li>
+                            <li>Email: sbsi.daan@gmail.com</li>
                             <li>Phone: 8322471</li>
                         </ul>
                     </div>

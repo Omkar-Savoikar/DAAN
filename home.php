@@ -100,7 +100,7 @@ $taluka = $_SESSION['taluka'];
                         </div>
                         <h5 class="mt-4 mb-2">Donate Books</h5>
                         <p>Want to donate books?? You are at right place.. Just fill the details and donate your books
-                            easily!! </p>
+                            easily!! Donate now. </p>
                     </div>
                 </a>
                 <a class="col-lg-4 col-sm-6" href="shoe.php">
