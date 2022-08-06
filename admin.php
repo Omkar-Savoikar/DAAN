@@ -5,6 +5,7 @@ ob_start();
 ?>
 <!doctype html>
 <html lang="en">
+
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -22,6 +23,7 @@ ob_start();
     </style>
     <title>DAAN</title>
 </head>
+
 <body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="70">
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg py-3 sticky-top navbar-light bg-white">
@@ -29,8 +31,7 @@ ob_start();
             <a class="navbar-brand" href="#">
                 <img class="logo" src="img/daan logo.jpg" alt="">
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -50,8 +51,8 @@ ob_start();
                 </div>
                 <?php
                 $sql = "SELECT * FROM `ngorequest` WHERE `Status` = 'NULL'";
-                $result = mysqli_query($db,$sql);
-                $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+                $result = mysqli_query($db, $sql);
+                $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
                 $count = mysqli_num_rows($result);
                 if ($count == 0) {
                     echo ('<div class="text-secondary">No new requests</div>');
@@ -70,10 +71,10 @@ ob_start();
                                     <p>DIN: <?php echo $row['DIN'] ?> </p>
                                     <p>Mobile No: <?php echo $row['Mobile'] ?> </p>
                                     <p>EmailID: <?php echo $row['EmailID'] ?> </p>
-                                    <p>Address: <?php echo 'H.No. ' . $row['H.No'] . ', ' . $row['Area'] . ', ' . $row['City'] . ', ' . $row['Taluka'] . ', ' . $row['District']?> </p>
+                                    <p>Address: <?php echo 'H.No. ' . $row['H.No'] . ', ' . $row['Area'] . ', ' . $row['City'] . ', ' . $row['Taluka'] . ', ' . $row['District'] ?> </p>
                                 </div>
                                 <?php
-                                if(array_key_exists('button1', $_POST)) {
+                                if (array_key_exists('button1', $_POST)) {
                                     // echo "Accept";
                                     $DIN = $row['DIN'];
                                     $NGOname = $row['NGO_Name'];
@@ -88,12 +89,12 @@ ob_start();
                                     $password = $row['Password'];
                                     $sql = "UPDATE `ngorequest` SET `Status` = 'Accepted' WHERE `DIN` = '$DIN'";
                                     $res = mysqli_query($db, $sql);
-                                    if ($result) {
+                                    if ($res) {
                                         $sql = "INSERT INTO `ngo` (`DIN`, `NGO_Name`, `H.No`, `Area`, `City`, `Taluka`, `District`, `Pincode`, `Mobile`, `EmailId`, `Password`) VALUES ('$DIN', '$NGOname', '$hno', '$area', '$city', '$taluka', '$district', '$pincode', '$phone', '$emailid', '$password')";
-                                        $res = mysqli_query($db,$sql);
+                                        $res = mysqli_query($db, $sql);
+                                        $res = false;
                                     }
-                                }
-                                else if(array_key_exists('button2', $_POST)) {
+                                } else if (array_key_exists('button2', $_POST)) {
                                     $sql = "UPDATE `ngorequest` SET `Status` = 'Declined' WHERE `DIN` = '$DIN'";
                                     $res = mysqli_query($db, $sql);
                                 }
@@ -106,7 +107,7 @@ ob_start();
                         </div>
                     </div>
                 <?php
-                    $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+                    $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
                 }
                 ?>
             </div>
@@ -150,7 +151,6 @@ ob_start();
             </div>
         </div>
     </footer>
-    <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
 </body>
 
